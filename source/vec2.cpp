@@ -15,18 +15,21 @@ Vec2&
 Vec2::operator+=(Vec2 const& v) {
     x_ += v.x_;
     y_ += v.y_;
+    return *this;
 }
 
 Vec2&
 Vec2::operator-=(Vec2 const& v) {
     x_ -= v.x_;
     y_ -= v.y_;
+    return *this;
 }
 
 Vec2&
 Vec2::operator*=(float s) {
     x_ *= s;
     y_ *= s;
+    return *this;
 }
 
 Vec2&
@@ -37,6 +40,7 @@ Vec2::operator/=(float s) {
     } else {
         std :: cout << "Teilen durch Null fuehrt zum Weltuntergang \n";
     }
+    return *this;
 }
 
 //Aufgabe 2.4
@@ -55,9 +59,8 @@ Vec2 operator-(Vec2 const& u, Vec2 const& v){
 } 
 
 Vec2 operator*(Vec2 const& v, float s) {
-    Vec2 vec_test;
-    vec_test.x_ = (v.x_ * s);
-    vec_test.y_ = (v.y_ * s);
+    Vec2 vec_test{v};
+    vec_test*=s;
     return vec_test;
 }
 
@@ -73,10 +76,7 @@ Vec2 operator/(Vec2 const& v, float s) {
 }
 
 Vec2 operator*(float s, Vec2 const& v) {
-    Vec2 vec_test;
-    vec_test.x_ = (v.x_ / s);
-    vec_test.y_ = (v.y_ / s);
-    return vec_test;
+    return v*s;
 }
 
 Vec2::~Vec2(){}
