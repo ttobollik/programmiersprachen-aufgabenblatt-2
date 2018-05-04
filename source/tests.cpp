@@ -326,6 +326,13 @@ TEST_CASE("Rectangle-User-Defined-Konstrukor", "[rectangle]") {
   REQUIRE(r1.get_max()==Vec2(3,5));
 }
 
+//Aufgabe 2.9
+TEST_CASE("Circle-Circumference", "[rectangle]") {
+  REQUIRE(Circle().circumference()==Approx(6.28).epsilon(0.01));
+  REQUIRE(Circle(3).circumference()==Approx(18.85).epsilon(0.01));
+  REQUIRE(Circle(5).circumference()==Approx(31.46).epsilon(0.01));
+}
+
 
 int main(int argc, char *argv[])
 {
