@@ -2,11 +2,13 @@
 #ifndef CIRCLE_HPP
 #define CIRCLE_HPP
 #include "vec2.hpp"
+#include "color.hpp"
 
 class Circle {
   private:
     const float radius_;
     const Vec2 center_;
+    Color color_;
     
 
   
@@ -15,9 +17,12 @@ class Circle {
     Circle();
     Circle(float radius, float x, float y);
     Circle(float radius);
+    Circle(float radius, Color color);
+    Circle(Color color);
     float get_radius() const;
     Vec2 get_center() const;
     float circumference();
+    
 
 };
 

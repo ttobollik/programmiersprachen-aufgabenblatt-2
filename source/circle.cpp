@@ -4,11 +4,15 @@
 #include <math.h>
 
 
-    Circle::Circle() : radius_{1.0f}, center_{0.0,0.0}{}
+    Circle::Circle() : radius_{1.0f}, center_{0.0,0.0}, color_{0.0, 0.0, 0.0}{}
 
-    Circle::Circle(float radius, float x, float y): radius_{radius}, center_{x,y} {}
+    Circle::Circle(float radius, float x, float y): radius_{radius}, center_{x,y}, color_{0.0, 0.0, 0.0} {}
 
-    Circle::Circle(float radius) : radius_{radius}, center_{0.0,0.0} {}
+    Circle::Circle(float radius) : radius_{radius}, center_{0.0,0.0},color_{0.0, 0.0, 0.0} {}
+
+    Circle::Circle(float radius, Color color) : radius_{radius}, center_{0.0,0.0}, color_{color} {}
+
+    Circle::Circle(Color color) : radius_{1.0f}, center_{0.0,0.0}, color_{color} {}
 
     float Circle::get_radius() const{
         return radius_;
