@@ -23,4 +23,7 @@ struct Vec2 {
   Vec2 operator/(Vec2 const& v, float s);
   Vec2 operator*(float s, Vec2 const& v);
 
+  // Bonus
+  bool operator==(Vec2 const& u, Vec2 const& v);
+
 #endif // VEC2_HPP

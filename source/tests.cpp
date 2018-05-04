@@ -136,6 +136,15 @@ TEST_CASE("vec2/=-2", "[vector]") {
     REQUIRE((Vec2(-2.0, -3.0) * -2).y_==6.0f);
   } 
 
+  //Test Bonus == Operator
+  TEST_CASE("equal.operator", "[Vector]") {
+    Vec2 v1{0,5};
+    Vec2 v2{2,3};
+    Vec2 v3{2,3};
+    REQUIRE((v1==v2)==false);
+    REQUIRE((v1==v1)==true);
+    REQUIRE((v2==v3)==true);
+  } 
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);

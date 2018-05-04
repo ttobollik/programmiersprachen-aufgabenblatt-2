@@ -79,4 +79,7 @@ Vec2 operator*(float s, Vec2 const& v) {
     return v*s;
 }
 
+bool operator==(Vec2 const& u, Vec2 const& v) {
+    return ((u.x_ == v.x_) && (v.y_ == u.y_))?true:false;
+}
 Vec2::~Vec2(){}
