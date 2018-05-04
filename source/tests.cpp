@@ -323,6 +323,17 @@ TEST_CASE("Circle-color", "[circle]") {
   REQUIRE((c3.get_color()).b==0.8f);
 }
 
+TEST_CASE("Rectangle-color", "[circle]") {
+  Rectangle r1;
+  Color co1{0.2, 0.5, 0.8};
+  Rectangle r2{co1};
+  REQUIRE((r1.get_color()).r==0.0f);
+  REQUIRE((r1.get_color()).g==0.0f);
+  REQUIRE((r2.get_color()).r==0.2f);
+  REQUIRE((r2.get_color()).b==0.8f);
+}
+
+
 TEST_CASE("Rectangle-Std-Konstruktor", "[rectangle]") {
   Rectangle r1;
   REQUIRE(r1.get_min()==Vec2(0,0));
@@ -344,6 +355,29 @@ TEST_CASE("Circle-Circumference", "[rectangle]") {
   REQUIRE(Circle(5).circumference()==Approx(31.46).epsilon(0.01));
 }
 
+TEST_CASE("Rectangle-length", "[rectangle]") {
+  REQUIRE(Rectangle().get_length()==1);
+  Vec2 v1{2,3};
+  Vec2 v2{5,7};
+  Rectangle r1{v1, v2};
+  REQUIRE(r1.get_length()==3);
+}
+
+TEST_CASE("Rectangle-height", "[rectangle]") {
+  REQUIRE(Rectangle().get_height()==1);
+  Vec2 v1{2,3};
+  Vec2 v2{5,7};
+  Rectangle r1{v1, v2};
+  REQUIRE(r1.get_height()==4);
+}
+
+TEST_CASE("Rectangle-circumference", "[rectangle]") {
+  REQUIRE(Rectangle().circumference()==4);
+  Vec2 v1{2,3};
+  Vec2 v2{5,7};
+  Rectangle r1{v1, v2};
+  REQUIRE(r1.circumference()==14);
+}
 
 int main(int argc, char *argv[])
 {
