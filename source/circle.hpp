@@ -22,6 +22,7 @@ class Circle {
     float get_radius() const;
     Vec2 get_center() const;
     float circumference();
+    Color get_color() const;
     
 
 };

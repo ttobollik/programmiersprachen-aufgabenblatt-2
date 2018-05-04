@@ -22,6 +22,10 @@
         return center_;
     }
 
+    Color Circle::get_color() const{
+        return color_;
+    }
+
     float Circle::circumference() {
         circumference_ = (2*M_PI*radius_);
         return circumference_;

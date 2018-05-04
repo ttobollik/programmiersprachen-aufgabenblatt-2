@@ -312,6 +312,17 @@ TEST_CASE("Circle", "[circle]") {
   REQUIRE((c3.get_center()).y_==0);
 }
 
+TEST_CASE("Circle-color", "[circle]") {
+  Circle c1;
+  Color co1{0.2, 0.5, 0.8};
+  Circle c2{3, co1};
+  Circle c3{co1};
+  REQUIRE((c1.get_color()).r==0.0f);
+  REQUIRE((c1.get_color()).g==0.0f);
+  REQUIRE((c2.get_color()).r==0.2f);
+  REQUIRE((c3.get_color()).b==0.8f);
+}
+
 TEST_CASE("Rectangle-Std-Konstruktor", "[rectangle]") {
   Rectangle r1;
   REQUIRE(r1.get_min()==Vec2(0,0));
