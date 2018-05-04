@@ -65,14 +65,9 @@ Vec2 operator*(Vec2 const& v, float s) {
 }
 
 Vec2 operator/(Vec2 const& v, float s) {
-    if (s != 0) {
-      Vec2 vec_test;
-      vec_test.x_ = (v.x_ / s);
-      vec_test.y_ = (v.y_ / s);
-      return vec_test;
-    } else {
-        std :: cout << "Wer durch Null teilt, bekommt einen auf den Deckel \n";
-    }
+    Vec2 vec_test{v};
+    vec_test /= s;
+    return vec_test;
 }
 
 Vec2 operator*(float s, Vec2 const& v) {
@@ -82,4 +77,9 @@ Vec2 operator*(float s, Vec2 const& v) {
 bool operator==(Vec2 const& u, Vec2 const& v) {
     return ((u.x_ == v.x_) && (v.y_ == u.y_))?true:false;
 }
+
+std::ostream& operator<<(std::ostream &strm, const Vec2 &vec) {
+  return strm << "{" << vec.x_ << "," << vec.y_ << "}";
+}
+
 Vec2::~Vec2(){}
