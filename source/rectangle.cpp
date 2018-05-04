@@ -44,3 +44,10 @@ float Rectangle::circumference() {
     circumference_ = (2*length + 2*height);
     return circumference_;
 }
+
+void Rectangle::draw(Window& window) {
+    window.draw_line(min_.x_, min_.y_, min_.x_, max_.y_, 1.0f, 0.0f, 0.0f);
+    window.draw_line(min_.x_, max_.y_, max_.x_, max_.y_, 1.0f, 0.0f, 0.0f);
+    window.draw_line(max_.x_, max_.y_, max_.x_, min_.y_, 1.0f, 0.0f, 0.0f);
+    window.draw_line(min_.x_, min_.y_, max_.x_, min_.y_, 1.0f, 0.0f, 0.0f);
+}

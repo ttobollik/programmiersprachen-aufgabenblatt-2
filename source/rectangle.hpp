@@ -3,6 +3,7 @@
 #define RECTANGLE_HPP
 #include "vec2.hpp"
 #include "color.hpp"
+#include "window.hpp"
 
 class Rectangle {
   private:
@@ -21,6 +22,7 @@ class Rectangle {
     float circumference_;
     float circumference();
     Color get_color() const;
+    void draw(Window& window);
 };
 
 #endif

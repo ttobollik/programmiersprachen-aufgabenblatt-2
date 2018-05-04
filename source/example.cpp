@@ -2,11 +2,12 @@
 #include <GLFW/glfw3.h>
 #include <utility>
 #include <cmath>
-
+#include "rectangle.hpp"
 
 int main(int argc, char* argv[])
 {
   Window win{std::make_pair(800,800)};
+  Rectangle rec;
 
   while (!win.should_close()) {
     if (win.get_key(GLFW_KEY_ESCAPE) == GLFW_PRESS) {
@@ -46,6 +47,8 @@ int main(int argc, char* argv[])
 
     std::string text = "mouse position: (" + std::to_string(m.first) + ", " + std::to_string(m.second) + ")";
     win.draw_text(10, 5, 35.0f, text);
+
+    rec.draw(win);
 
     win.update();
   }
