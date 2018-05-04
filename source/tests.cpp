@@ -299,8 +299,6 @@ TEST_CASE("Circle", "[circle]") {
   Circle c1;
   Circle c2{3,2,5};
   Circle c3{4};
-  //REQUIRE(c1.radius_ == 0);
-  //REQUIRE(c2.radius_ == 3);
   REQUIRE(c1.get_radius()==1.0f);
   REQUIRE(c2.get_radius()==3);
   REQUIRE(c3.get_radius()==4);
