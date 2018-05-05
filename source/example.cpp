@@ -3,14 +3,27 @@
 #include <utility>
 #include <cmath>
 #include "rectangle.hpp"
+#include "circle.hpp"
 #include "vec2.hpp"
 #include "color.hpp"
 
 int main(int argc, char* argv[])
 {
   Window win{std::make_pair(800,800)};
+
+  //red examples
+  Vec2 v1{60,85};
+  Vec2 v2{30,53};
   Rectangle rec{v1, v2};
+  Circle circ{100.0f, 400.0f, 400.0f};
+
+ //color examples
+  Color col{0.0f, 0.0f, 1.0f};
+  Vec2 v3{140,200};
+  Vec2 v4{40,52};
   Rectangle rec1{v3, v4};
+  Circle circ1{300.0f, 300.0f, 300.0f};
+
 
   while (!win.should_close()) {
     if (win.get_key(GLFW_KEY_ESCAPE) == GLFW_PRESS) {
@@ -52,7 +65,12 @@ int main(int argc, char* argv[])
     win.draw_text(10, 5, 35.0f, text);
 
     rec.draw(win);
+    circ.draw(win);
+
     rec1.draw(win, col);
+    circ1.draw(win, col);
+
+
 
     win.update();
   }
