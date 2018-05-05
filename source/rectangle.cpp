@@ -46,15 +46,25 @@ float Rectangle::circumference() {
 }
 
 void Rectangle::draw(Window& window) {
-    window.draw_line(min_.x_, min_.y_, min_.x_, max_.y_, 1.0f, 0.0f, 0.0f);
-    window.draw_line(min_.x_, max_.y_, max_.x_, max_.y_, 1.0f, 0.0f, 0.0f);
-    window.draw_line(max_.x_, max_.y_, max_.x_, min_.y_, 1.0f, 0.0f, 0.0f);
-    window.draw_line(min_.x_, min_.y_, max_.x_, min_.y_, 1.0f, 0.0f, 0.0f);
-}
-
-void Rectangle::draw(Window& window, Color color) {
     window.draw_line(min_.x_, min_.y_, min_.x_, max_.y_, color_.r, color_.g, color_.b);
     window.draw_line(min_.x_, max_.y_, max_.x_, max_.y_, color_.r, color_.g, color_.b);
     window.draw_line(max_.x_, max_.y_, max_.x_, min_.y_, color_.r, color_.g, color_.b);
     window.draw_line(min_.x_, min_.y_, max_.x_, min_.y_, color_.r, color_.g, color_.b);
 }
+
+void Rectangle::draw(Window& window, Color color) {
+    window.draw_line(min_.x_, min_.y_, min_.x_, max_.y_, color.r, color.g, color.b);
+    window.draw_line(min_.x_, max_.y_, max_.x_, max_.y_, color.r, color.g, color.b);
+    window.draw_line(max_.x_, max_.y_, max_.x_, min_.y_, color.r, color.g, color.b);
+    window.draw_line(min_.x_, min_.y_, max_.x_, min_.y_, color.r, color.g, color.b);
+}
+
+ bool Rectangle::is_inside(Vec2 v1) {
+        bool response;
+        if((v1.x_ < max_.x_) && (v1.x_ > min_.x_) && (v1.y_ < max_.y_) && (v1.y_ > min_.y_)) {
+            response = true;
+        } else {
+            response = false;
+        }
+        return response;
+    }

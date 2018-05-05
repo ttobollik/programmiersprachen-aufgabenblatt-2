@@ -377,6 +377,27 @@ TEST_CASE("Rectangle-circumference", "[rectangle]") {
   REQUIRE(r1.circumference()==14);
 }
 
+//Aufgabe 2.13 - is inside
+TEST_CASE("Circle_isinside", "[circle") {
+  Circle c1{5};
+  Vec2 in{1,2};
+  Vec2 on{5,5};
+  Vec2 out{70,80};
+  REQUIRE(c1.is_inside(in)==true);
+  REQUIRE(c1.is_inside(on)==false);
+  REQUIRE(c1.is_inside(out)==false);
+}
+
+TEST_CASE("Rectangle", "[rectangle]") {
+  Rectangle rec{Vec2(2,2), Vec2(6,6)};
+  Vec2 in{3,3};
+  Vec2 on{2,6};
+  Vec2 out{70,80};
+  REQUIRE(rec.is_inside(in)==true);
+  REQUIRE(rec.is_inside(on)==false);
+  REQUIRE(rec.is_inside(out)==false);
+}
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);

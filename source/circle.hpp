@@ -26,6 +26,7 @@ class Circle {
     Color get_color() const;
     void draw(Window& window);
     void draw(Window& window, Color color);
+    bool is_inside(Vec2 v1);
 
     
 

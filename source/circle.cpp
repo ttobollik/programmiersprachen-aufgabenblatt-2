@@ -40,8 +40,8 @@
         for(float x = start_point; x <= end_point; x += 0.1f) {
             //Formel zur Kreisberechnung: (x-center_x)^2+(y-center_y)^2=r^2 
             y = sqrt((radius_ * radius_) - ((x - center_.x_) * (x - center_.x_))); 
-            window.draw_point(x,y + center_.y_,1.0, 0.0, 0.0);
-            window.draw_point(x,-y + center_.y_,1.0, 0.0, 0.0);
+            window.draw_point(x,y + center_.y_,color_.r, color_.g, color_.b);
+            window.draw_point(x,-y + center_.y_,color_.r, color_.g, color_.b);
         }
     }
 
@@ -52,7 +52,17 @@
         for(float x = start_point; x <= end_point; x += 0.1f) {
             //Formel zur Kreisberechnung: (x-center_x)^2+(y-center_y)^2=r^2 
             y = sqrt((radius_ * radius_) - ((x - center_.x_) * (x - center_.x_))); 
-            window.draw_point(x,y + center_.y_,color_.r, color_.g, color_.b);
-            window.draw_point(x,-y + center_.y_,color_.r, color_.g, color_.b);
+            window.draw_point(x,y + center_.y_,color.r, color.g, color.b);
+            window.draw_point(x,-y + center_.y_,color.r, color.g, color.b);
         }
+    }
+
+    bool Circle::is_inside(Vec2 v1) {
+        bool response;
+        if(((v1.x_ - center_.x_)*(v1.x_ - center_.x_)+(v1.y_ - center_.y_)*(v1.y_ - center_.y_)) < (radius_ * radius_)) {
+            response = true;
+        } else {
+            response = false;
+        }
+        return response;
     }
