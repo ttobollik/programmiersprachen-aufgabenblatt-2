@@ -7,23 +7,27 @@
 #include "vec2.hpp"
 #include "color.hpp"
 
+
 int main(int argc, char* argv[])
 {
   Window win{std::make_pair(800,800)};
+  
 
   //red examples
-  Vec2 v1{60,85};
-  Vec2 v2{30,53};
-  Rectangle rec{v1, v2};
-  Circle circ{100.0f, 400.0f, 400.0f};
+  // Vec2 v1{60,85};
+  // Vec2 v2{30,53};
+  // Rectangle rec{v1, v2};
+  // Circle circ{100.0f, 400.0f, 400.0f};
 
- //color examples
-  Color col{0.0f, 0.0f, 1.0f};
-  Vec2 v3{140,200};
-  Vec2 v4{40,52};
-  Rectangle rec1{v3, v4};
-  Circle circ1{300.0f, 300.0f, 300.0f};
+  // //color example
+  // Color col{0.0f, 0.5f, 0.5f};
+  // Vec2 v3{140,200};
+  // Vec2 v4{40,52};
+  // Rectangle rec1{v3, v4};
+  // Circle circ1{300.0f, 300.0f, 300.0f};
+  
 
+  Circle clock{50, 600, 600};
 
   while (!win.should_close()) {
     if (win.get_key(GLFW_KEY_ESCAPE) == GLFW_PRESS) {
@@ -64,14 +68,38 @@ int main(int argc, char* argv[])
     std::string text = "mouse position: (" + std::to_string(m.first) + ", " + std::to_string(m.second) + ")";
     win.draw_text(10, 5, 35.0f, text);
 
-    rec.draw(win);
-    circ.draw(win);
+    // rec.draw(win);
+    // circ.draw(win);
 
-    rec1.draw(win, col);
-    circ1.draw(win, col);
+    //Color col{float(m.first/800.0), float((m.first + m.second)/1600.0), float(m.second/800.0)};
+
+    
+    
+    // Color blue(0.0, 0.0, 1.0);
+    // Vec2 mouse_pos;
+    // mouse_pos.x_ = float(m.first);
+    // mouse_pos.y_ = float(m.second);
+
+    // if(rec1.is_inside(mouse_pos) == true) {
+    //   rec1.draw(win, blue);
+    // } else {
+    //   rec1.draw(win, col);
+    // }
+    // if(circ1.is_inside(mouse_pos) == true) {
+    //   circ1.draw(win, blue);
+    // } else {
+    //   circ1.draw(win, col);
+    //}
+   
+    clock.draw(win);
+    win.draw_line(clock.get_center().x_, clock.get_center().y_, clock.get_center().x_ + 40 * std::sin(t * M_PI / 30), clock.get_center().y_ + 40 * -std::cos(t * M_PI / 30), 1.0, 0.0, 0.0);
+    win.draw_line(clock.get_center().x_, clock.get_center().y_, clock.get_center().x_ + 30 * std::sin(t * M_PI / 1800), clock.get_center().y_ + 30 * -std::cos(t * M_PI / 1800), 1.0, 0.5, 0.0);
+    win.draw_line(clock.get_center().x_, clock.get_center().y_, clock.get_center().x_ + 20 * std::sin(t* M_PI / 21600), clock.get_center().y_ + 20 * -std::cos(t/21600), 0.8, 0.8, 0.0);
 
 
-
+    std::string time = "Vergangene Zeit (" + std::to_string(t) + ")";
+    win.draw_text(50, 500, 35.0f, time);
+    
     win.update();
   }
 
