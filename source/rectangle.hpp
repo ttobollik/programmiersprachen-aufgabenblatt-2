@@ -23,6 +23,7 @@ class Rectangle {
     float circumference();
     Color get_color() const;
     void draw(Window& window);
+    void draw(Window& window, Color color);
 };
 
 #endif

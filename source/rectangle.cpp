@@ -51,3 +51,10 @@ void Rectangle::draw(Window& window) {
     window.draw_line(max_.x_, max_.y_, max_.x_, min_.y_, 1.0f, 0.0f, 0.0f);
     window.draw_line(min_.x_, min_.y_, max_.x_, min_.y_, 1.0f, 0.0f, 0.0f);
 }
+
+void Rectangle::draw(Window& window, Color color) {
+    window.draw_line(min_.x_, min_.y_, min_.x_, max_.y_, color_.r, color_.g, color_.b);
+    window.draw_line(min_.x_, max_.y_, max_.x_, max_.y_, color_.r, color_.g, color_.b);
+    window.draw_line(max_.x_, max_.y_, max_.x_, min_.y_, color_.r, color_.g, color_.b);
+    window.draw_line(min_.x_, min_.y_, max_.x_, min_.y_, color_.r, color_.g, color_.b);
+}
